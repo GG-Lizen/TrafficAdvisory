@@ -1,0 +1,136 @@
+出发城市	到达城市	班次名	出发时间	到达时间	用时	票价
+北京	郑州	K27	13:15 +0	21:12 +0	08:57 +0	78.00
+北京	郑州	T41	07:11 +0	15:8 +0	08:57 +0	90.00
+北京	兰州	T134	19:24 +0	10:28 +1	15:4 +0	162.00
+
+
+郑州	西安	T27	21:24 +0	05:13 +1	08:49 +0	82.00
+郑州	北京	K27	13:42 +0	21:40 +0	08:58 +0	78.00
+郑州	北京	T41	09:40 +0	17:37 +0	08:57 +0	90.00
+郑州	上海	K41	15:20 +0	00:13 +1	09:53 +0	100.00
+
+西安	郑州	T27	05:41 +0	13:30 +0	08:49 +0	82.00
+西安	武汉	K218	01:34 +0	18:35 +0	17:1 +0	178.00
+
+上海	郑州	K41	00:35 +0	09:28 +0	09:53 +0	100.00
+上海	广州	K59	08:20 +0	03:16 +1	19:56 +0	182.00
+
+广州	上海	K59	03:39 +0	22:53 +0	19:14 +0	182.00
+广州	昆明	K323	06:18 +0	16:14 +0	10:56 +0	102.00
+广州	长沙	T373	00:35 +0	11:35 +0	11:0 +SS0	116.00
+
+兰州	北京	T134	03:52 +0	18:56 +0	15:4 +0	162.00
+兰州	武汉	K747	17:41 +0	14:47 +1	21:6 +0	210.00
+兰州	乌鲁木齐	T371	11:42 +0	23:54 +0	12:12 +0	114.00
+
+昆明	广州	K323	16:31 +0	02:27 +1	10:56 +0	102.00
+昆明	武汉	T873	21:42 +0	11:46 +1	14:4 +0	134.00
+
+武汉	昆明	T873	07:13 +0	21:17 +0	14:4 +0	134.00
+武汉	长沙	K116	09:36 +0	18:32 +0	09:56 +0	98.00
+武汉	兰州	K747	15:13 +0	12:19 +1	21:6 +0	210.00
+武汉	西安	K218	18:5+0	11:51 +1	17:1 +0	178.00
+
+长沙	武汉	K116	18:54 +0	03:48 +1	09:54 +0	98.00
+长沙	广州	T373	13:15 +0	00:15 +1	11:0 +0	116.00
+
+乌鲁木齐	兰州	T371	00:35 +0	11:23 +0	11:48 +0	114.00
+
+安徽	郑州	T555	15:20 +0	20:35 +0	05:15 +0	310.00
+
+
+出发城市|到达城市|班次名||||||||出发时间||||||||到达时间||||||||||用时|||||||票价
+北京     西安     Gds27         09:50,+0        12:35,+0        02:45,+0    978
+北京     乌鲁木齐 DD141         08:11,+0        11:08,+0        02:57,+0    1490
+北京     郑州     GM1227        16:15,+0        21:12,+0        04:57,+0    78
+郑州     西安     G2ds7         13:15,+0        21:12,+0        07:57,+0    1178
+兰州     郑州     LC901         13:15,+0        21:12,+0        07:57,+0    1278
+广州     武汉     CK214         01:25,+0        13:05,+0        11:40,+0    1718
+广州     武汉     CM214         01:25,+0        13:05,+0        11:40,+0    718
+广州     西安     M1231         10:15,+0        11:40,+0        01:25,+0    1278
+西安     广州     Gasd27        13:15,+0        21:12,+0        07:57,+0    1278
+西安     北京     G2sdsa7       13:15,+0        21:12,+0        07:57,+0    738
+上海     兰州     MU6712        17:10,+0        19:12,+0        02:02,+0    1668
+上海     武汉     MU6712        18:10,+0        19:12,+0        01:02,+0    668
+武汉     上海     GC124         18:50,+0        11:51,+1        17:01,+0    658
+武汉     广州     GCm124        07:05,+0        08:45,+0        01:40,+0    678
+武汉     昆明     MC320         16:25,+0        17:15,+0        00:50,+0    1678
+昆明     乌鲁木齐 MA173         12:35,+0        14:00,+0        01:25,+0    578
+乌鲁木齐 昆明     CA89          10:45,+0        03:12,+0        16:27,+0    1378
+乌鲁木齐 北京     CA1123        09:15,+0        02:12,+0        16:57,+0    1178
+乌鲁木齐 长沙     MA173         13:15,+0        16:20,+0        03:05,+0    1878
+乌鲁木齐 安徽     MA173         13:15,+0        15:20,+0        02:05,+0    878
+安徽     武汉     MC3211        14:15,+0        15:45,+0        01:30,+0    678
+安徽     昆明     MA173         10:25,+0        11:45,+0        01:20,+0    780
+长沙     广州     MC901         13:15,+0        15:12,+0        01:57,+0    378
+
+LineNodeP p;//
+		//dis = (DistInfoTime*)malloc(sizeof(DistInfoTime) * G.n);
+		int i, m, k, min;
+		Time  waitTcost, temp;
+		for (i = 0; i < G.n; ++i) {//初始化
+			dis[i].time = INFINITY;
+			dis[i].et.day = 0; dis[i].et.hour = 0; dis[i].et.minute = 0;
+			G.tags[i] = UNSELECTED; //都未找到最短路
+		}
+		for (p = G.vexs[startIndex].firstArc; p != NULL; p = p->nextArc) {
+			dis[p->adjvex].prev = startIndex;
+			timeCost(time, p->startTime, waitTcost);
+			if (TimeWeight(p->timeCost) + TimeWeight(waitTcost) < dis[p->adjvex].time) {
+				dis[p->adjvex].time = TimeWeight(p->timeCost) + TimeWeight(waitTcost);
+				dis[p->adjvex].p = p;
+				//temp = TimeADD(TimeADD(dis[p->adjvex].et, waitTcost),p->timeCost);
+				dis[p->adjvex].et.day =0; dis[p->adjvex].et.hour = p->stopTime.hour; dis[p->adjvex].et.minute = p->stopTime.minute;
+			}
+		}
+
+		dis[startIndex].prev = -1;
+		dis[startIndex].time = 0; //源点到源点最短路权值为0
+		dis[startIndex].et = time;
+		dis[startIndex].p = NULL;
+		G.tags[startIndex] = SELECTED;
+		for (m = 1; m < G.n; m++) {
+			min = INFINITY; k = 0;
+			for (i = 0; i < G.n; i++)
+				if (0 == G.tags[i] && dis[i].time < min) {
+					k = i; min = dis[k].time;
+				}
+			G.tags[k] = SELECTED;
+			for (p = G.vexs[k].firstArc; p != NULL; p = p->nextArc) {
+				i = p->adjvex;
+				timeCost(dis[k].et, p->startTime, waitTcost);
+				if (UNSELECTED == G.tags[i] && dis[k].time + TimeWeight(waitTcost) + TimeWeight(p->timeCost) < dis[i].time) {
+					dis[i].time = dis[k].time + TimeWeight(waitTcost) + TimeWeight(p->timeCost);
+					dis[i].prev = k;
+					
+					dis[i].et.day =0; dis[i].et.hour = p->stopTime.hour; dis[i].et.minute = p->stopTime.minute;
+					dis[p->adjvex].p = p;
+				}
+			}
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
